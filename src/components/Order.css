@@ -1,0 +1,92 @@
+
+.header {
+    background-color: #CE2829;
+    padding: 1rem;
+    position: absolute;
+      top: 0%;
+      right: 0%;
+      left: 0%;
+}
+
+.logoImage {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 1300px;
+    height: 50px;
+  }
+  
+  .header p{
+    color: white;
+    margin-left: 22rem;
+  }
+  
+  .order-container {
+    width: 500px;
+    height: 300px;
+    line-height:1.9rem;
+  }
+  
+  
+  
+ .isim {
+    margin-bottom: 35px;
+    padding: 3px 40px;
+ }
+
+
+  p {
+    text-align: left;
+    
+  }
+
+  h4 {
+    text-align: left;
+  }
+  
+
+  form {
+    text-align: left;
+  }
+
+  .order-container button {
+    padding: 8px 80px;
+    font-size: 1em;
+    background-color:  #FDC913;
+    color: black;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .boyut-hamur {
+    display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  }
+
+
+  .boyut-card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 30%;
+
+  }
+
+  .siparis-notu{
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .siparis-toplami {
+    border-top: 1px solid #5F5F5F;
+  }
+  .siparis-toplami h4 { 
+    color: #5F5F5F;
+  }
+
+  .toplam {
+    color:#CE2829;
+  }
