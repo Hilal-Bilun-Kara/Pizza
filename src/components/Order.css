@@ -1,3 +1,6 @@
+body {
+  font-family: 'Barlow', sans-serif;
+}
 
 .header {
     background-color: #CE2829;
@@ -12,13 +15,13 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    width: 1300px;
+    width: 1500px;
     height: 50px;
   }
   
   .header p{
     color: white;
-    margin-left: 22rem;
+    margin-left: 470px;
   }
   
   .order-container {
@@ -26,7 +29,6 @@
     height: 300px;
     line-height:1.9rem;
   }
-  
   
   
  .isim {
@@ -49,15 +51,26 @@
     text-align: left;
   }
 
-  .order-container button {
-    padding: 8px 80px;
+  .btn btn-secondary{
+    margin-left: 300px;
+    padding: 3px 60px;
     font-size: 1em;
+    font-weight: bold;
     background-color:  #FDC913;
     color: black;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
+    text-wrap: nowrap;
   }
-  
+  .btn.disabled, .btn:disabled{
+    background-color:  #FDC913;
+    color: black;
+  }
+  .boyut-card{ 
+    display: flex;
+    flex-direction: column;
+  }
   .boyut-hamur {
     display: flex;
   flex-direction: row;
@@ -66,23 +79,18 @@
   margin-bottom: 40px;
   }
 
-
-  .boyut-card {
+  .topping-container{
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: 30%;
-
+    flex-flow: wrap-reverse;
+    width: 44%;
   }
 
   .siparis-notu{
     margin-top: 40px;
     margin-bottom: 40px;
+    border-bottom: 1px solid #5F5F5F;
   }
 
-  .siparis-toplami {
-    border-top: 1px solid #5F5F5F;
-  }
   .siparis-toplami h4 { 
     color: #5F5F5F;
   }
@@ -90,3 +98,59 @@
   .toplam {
     color:#CE2829;
   }
+
+  .counter {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .control__btn {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border: 1px solid #5F5F5F;
+   
+  }
+.btn-1{
+  border-radius: 8px 0 0 8px ;
+}
+.btn-2 {
+    border-radius: 0 8px 8px 0;
+  }
+ 
+
+.counter__output{
+  font-size: 20px;
+  border: 1px solid #5F5F5F;
+  padding: 10px 10px;
+  display: flex;
+  align-items: center;
+
+}
+ 
+.btn-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    column-gap: 20px;
+    border: 1px solid #5F5F5F;
+    padding: 10px 10px;
+    border-radius: 4px;
+}
+ 
+.control__btn {
+    font-size: 20px;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: rgb(16, 0, 54);
+    border: 1px solid rgb(16, 0, 54);
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+ 
+.control__btn:hover {
+    background-color: rgb(16, 0, 54);
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(16, 0, 54);
+}
+ 

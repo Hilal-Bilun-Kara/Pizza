@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import './Order.css';
 import logo from '../assets/logo.svg';
 import axios from 'axios';
+import { Button, Card } from 'reactstrap';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 const Order = () => {
   const [name, setName] = useState('');
@@ -10,10 +12,13 @@ const Order = () => {
   const [malzemeler, setMalzemeler] = useState([]);
   const [notlar, setNotlar] = useState('');
   const [isValid, setIsValid] = useState(true);
+  const [productCount, setProductCount] = useState(0);
 
   useEffect(() => {
-    setIsValid(!size || !hamurKalinliği || name.length > 3 || malzemeler.length < 4 || malzemeler.length > 10);
-  }, [size, hamurKalinliği, name, malzemeler]);
+    const isFormValid = !(!productCount || !size || !hamurKalinliği || name.length < 3 || malzemeler.length < 4 || malzemeler.length > 10);
+    setIsValid(isFormValid);
+  }, [size, hamurKalinliği, name, malzemeler,productCount]);
+
 
   const playLoud = {
     name: name,
@@ -23,6 +28,7 @@ const Order = () => {
     not: notlar,
   };
 
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!isValid) return;
@@ -34,6 +40,20 @@ const Order = () => {
         console.error(error);
       });
   };
+
+
+    
+  
+    const increaseCount = () => {
+      setProductCount(prevCount => prevCount + 1);
+    };
+  
+    const decreaseCount = () => {
+      if (productCount > 0) {
+        setProductCount(prevCount => prevCount - 1);
+      }
+    }
+
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -88,11 +108,21 @@ const Order = () => {
         <MalzemeCard malzemeler={malzemeler} handleMalzemelerChange={handleMalzemelerChange} />
 
         <NoteCard notlar={notlar} handleNotlarChange={handleNotlarChange} />
-        <SiparisToplami malzemeler={malzemeler} />
 
-        <button type='submit' disabled={isValid}>
-          SİPARİŞ VER
-        </button>
+        <div className="counter">
+      
+      <button className="control__btn btn-1" style={{fontSize:'30px', padding:'10px 13px', backgroundColor:' #FDC913'}} onClick={decreaseCount}>-</button>
+      <span className="counter__output"  style={{fontSize:'30px'}}>{productCount}</span>
+      <button className="control__btn btn-2" style={{fontSize:'30px',  padding:'10px 10px',  backgroundColor:' #FDC913'}} onClick={increaseCount}>+</button>
+      
+    </div>
+
+         <Card style={{width: '18rem', marginLeft:'35vh', marginTop:'-55px', padding:'30px 11px 20px 15px'}}>
+          <SiparisToplami malzemeler={malzemeler} />
+          <Link to="/success">
+          <Button className='order-contaButton' type='submit' style={{ padding: '10px 80px', backgroundColor: '#FDC913', color: 'black', fontSize:'bold'}} disabled={!isValid}>SİPARİŞ VER</Button>
+          </Link> 
+          </Card>
       </form>
     </div>
   );
@@ -101,7 +131,7 @@ const Order = () => {
 const BoyutCard = ({ size, handleSizeChange }) => {
   return (
     <div className='boyut-card'>
-      <h4>Boyut Seç</h4>
+      <h4>Boyut Seç * </h4>
       <label>
         <input
           type='radio'
@@ -141,9 +171,9 @@ const BoyutCard = ({ size, handleSizeChange }) => {
 const HamurCard = ({ hamurKalinliği, handleHamurChange }) => {
   return (
     <div className='hamur-card'>
-      <h4>Hamur Seç</h4>
+      <h4>Hamur Seç *</h4>
       <select value={hamurKalinliği} onChange={handleHamurChange}>
-        <option value=''>Seçiniz</option>
+        <option value=''>Hamur Kalınlığı</option>
         <option value='İnce'>İnce</option>
         <option value='Standart'>Standart</option>
         <option value='Kalın'>Kalın</option>
@@ -175,39 +205,14 @@ const MalzemeCard = ({ malzemeler, handleMalzemelerChange }) => {
     'Mantar',
   ];
 
-  const grup1 = ingredients.slice(0, 5);
-  const grup2 = ingredients.slice(5, 10);
-  const grup3 = ingredients.slice(10);
 
   return (
-    <div className='boyut-card'>
+    <div className='ek-malzeme'>
       <h4>Ek Malzemeler</h4>
       <p>En Fazla 10 malzeme seçebilirsiniz. 5₺</p>
       <form>
         <div className='topping-container'>
-          {grup1.map((topping, index) => (
-            <div key={index} className='topping-item'>
-              <input
-                type='checkbox'
-                value={topping}
-                checked={malzemeler.includes(topping)}
-                onChange={handleMalzemelerChange}
-              />
-              <label htmlFor={topping}>{topping}</label>
-            </div>
-          ))}
-          {grup2.map((topping, index) => (
-            <div key={index} className='topping-item'>
-              <input
-                type='checkbox'
-                value={topping}
-                checked={malzemeler.includes(topping)}
-                onChange={handleMalzemelerChange}
-              />
-              <label htmlFor={topping}>{topping}</label>
-            </div>
-          ))}
-          {grup3.map((topping, index) => (
+          {ingredients.map((topping, index) => (
             <div key={index} className='topping-item'>
               <input
                 type='checkbox'
@@ -229,6 +234,7 @@ const NoteCard = ({ notlar, handleNotlarChange }) => {
     <div className='siparis-notu'>
       <h4>Sipariş Notu</h4>
       <textarea
+      color='#5F5F5F'
         rows='2'
         cols='50'
         value={notlar}
@@ -248,10 +254,10 @@ const SiparisToplami = ({ malzemeler }) => {
     <div className='siparis-toplami'>
       <h4>Sipariş Toplamı</h4>
       <p>
-        Seçimler:<span>{totalMalzemePrice}₺</span>
+        Seçimler:<span style={{marginLeft:'150px'}}>{totalMalzemePrice}₺</span>
       </p>
       <p className='toplam'>
-        Toplam:<span>{totalPrice}₺</span>
+        Toplam:<span style={{marginLeft:'150px'}}>{totalPrice}₺</span>
       </p>
     </div>
   );
