@@ -3,13 +3,8 @@ import './Order.css';
 import logo from '../assets/logo.svg';
 import axios from 'axios';
 import { Button, Card } from 'reactstrap';
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
-
-export const errorMessage = {
-  name: 'Adınızı giriniz..',
-  malzemeler:'Ek malzeme seçiniz',
-};
 
 
 const Order = () => {
@@ -27,6 +22,7 @@ const Order = () => {
     setIsValid(isFormValid);
   }, [size, hamurKalinliği, name, malzemeler,productCount]);
 
+ const history =useHistory();
 
   const playLoud = {
     name: name,
@@ -41,12 +37,20 @@ const Order = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!isValid) return;
+
     axios.post('https://reqres.in/api/pizza', playLoud)
       .then((response) => {
-        console.log(response.data);
+        if (response) {
+          setIsValid(response);
+          history.push('/success');
+        } else {
+          history.push('/order');
+        }
+        
       })
       .catch((error) => {
         console.error(error);
+      
       });
   };
 
