@@ -99,6 +99,9 @@ const Order = () => {
         />
 
         <h4 className='pizzaName'>Position Absolute Acı Pizza</h4>
+        <p style={{display:'inline-block', marginTop:'30px', marginRight:'250px', fontSize:'25px'}}><b>85.5 ₺</b></p>
+  <span style={{display:'inline-block', marginRight:'120px'}}>4.9</span>
+  <span style={{display:'inline-block'}}>(200)</span>
         <p className='pizzaDetail'>Frontent Dev olarak hala position:absolute kullanıyorsan bu çok acı pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli lezzetli bir yemektir. . Küçük bir pizzaya bazen pizzetta denir.</p>
 <div className='boyut-hamur'>
         <BoyutCard size={size} handleSizeChange={handleSizeChange} />
@@ -131,7 +134,7 @@ const Order = () => {
 const BoyutCard = ({ size, handleSizeChange }) => {
   return (
     <div className='boyut-card'>
-      <h4>Boyut Seç * </h4>
+      <h4>Boyut Seç<span className='yildiz'>*</span></h4>
       <label>
         <input
           type='radio'
@@ -171,7 +174,7 @@ const BoyutCard = ({ size, handleSizeChange }) => {
 const HamurCard = ({ hamurKalinliği, handleHamurChange }) => {
   return (
     <div className='hamur-card'>
-      <h4>Hamur Seç *</h4>
+      <h4>Hamur Seç<span className='yildiz'>*</span></h4>
       <select value={hamurKalinliği} onChange={handleHamurChange}>
         <option value=''>Hamur Kalınlığı</option>
         <option value='İnce'>İnce</option>

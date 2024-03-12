@@ -1,20 +1,28 @@
+body {
+  font-family: 'Barlow', sans-serif !important;
+}
+
 .overlay-1 {
     background-color: #CE2829; 
-    width: 100%;
+    width: 225vh;
     height: 100vh;
     color: white;
   }
 
   .success-image {
     margin-top: 50px;
-    margin-bottom: 300px;
+    margin-bottom: 200px;
   }
   
  
 
   .overlay-1 p {
     font-weight: lighter;
-    font-size: 30px;
+    font-size: 35px;
     text-align: center;
+  }
+
+  *:focus {
+    outline: none;
   }
  
