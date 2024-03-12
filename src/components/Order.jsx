@@ -5,6 +5,13 @@ import axios from 'axios';
 import { Button, Card } from 'reactstrap';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
+
+export const errorMessage = {
+  name: 'Adınızı giriniz..',
+  malzemeler:'Ek malzeme seçiniz',
+};
+
+
 const Order = () => {
   const [name, setName] = useState('');
   const [size, setSize] = useState('');
@@ -14,6 +21,7 @@ const Order = () => {
   const [isValid, setIsValid] = useState(true);
   const [productCount, setProductCount] = useState(0);
 
+  
   useEffect(() => {
     const isFormValid = !(!productCount || !size || !hamurKalinliği || name.length < 3 || malzemeler.length < 4 || malzemeler.length > 10);
     setIsValid(isFormValid);
@@ -28,6 +36,7 @@ const Order = () => {
     not: notlar,
   };
 
+  
   
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -81,7 +90,7 @@ const Order = () => {
   };
 
   return (
-    <div className='order-container'>
+    <div className='order-page'>
       <div className='header'>
         <header>
           <img className='logoImage' src={logo} alt='Logo' />
@@ -96,6 +105,7 @@ const Order = () => {
           minLength='3'
           value={name}
           onChange={handleNameChange}
+          data-cy="isim-input"
         />
 
         <h4 className='pizzaName'>Position Absolute Acı Pizza</h4>
@@ -122,9 +132,8 @@ const Order = () => {
 
          <Card style={{width: '18rem', marginLeft:'35vh', marginTop:'-55px', padding:'30px 11px 20px 15px'}}>
           <SiparisToplami malzemeler={malzemeler} />
-          <Link to="/success">
-          <Button className='order-contaButton' type='submit' style={{ padding: '10px 80px', backgroundColor: '#FDC913', color: 'black', fontSize:'bold'}} disabled={!isValid}>SİPARİŞ VER</Button>
-          </Link> 
+          {/*history*/}
+          <Button className='order-contaButton' type='submit' style={{ padding: '10px 80px', backgroundColor: '#FDC913', color: 'black', fontSize:'bold'}} disabled={!isValid} data-cy="submit-input">SİPARİŞ VER</Button>
           </Card>
       </form>
     </div>
@@ -222,6 +231,7 @@ const MalzemeCard = ({ malzemeler, handleMalzemelerChange }) => {
                 value={topping}
                 checked={malzemeler.includes(topping)}
                 onChange={handleMalzemelerChange}
+                data-cy="malzeme-input"
               />
               <label htmlFor={topping}>{topping}</label>
             </div>
