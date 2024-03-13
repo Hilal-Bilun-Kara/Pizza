@@ -118,6 +118,7 @@ const Order = () => {
   <span style={{display:'inline-block'}}>(200)</span>
         <p className='pizzaDetail'>Frontent Dev olarak hala position:absolute kullanıyorsan bu çok acı pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli lezzetli bir yemektir. . Küçük bir pizzaya bazen pizzetta denir.</p>
 <div className='boyut-hamur'>
+
         <BoyutCard size={size} handleSizeChange={handleSizeChange} />
 
         <HamurCard hamurKalinliği={hamurKalinliği} handleHamurChange={handleHamurChange} />
@@ -136,7 +137,6 @@ const Order = () => {
 
          <Card style={{width: '18rem', marginLeft:'35vh', marginTop:'-55px', padding:'30px 11px 20px 15px'}}>
           <SiparisToplami malzemeler={malzemeler} />
-          {/*history*/}
           <Button className='order-contaButton' type='submit' style={{ padding: '10px 80px', backgroundColor: '#FDC913', color: 'black', fontSize:'bold'}} disabled={!isValid} data-cy="submit-input">SİPARİŞ VER</Button>
           </Card>
       </form>
