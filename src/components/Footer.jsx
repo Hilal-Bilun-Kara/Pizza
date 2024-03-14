@@ -13,10 +13,9 @@ import Instagram5 from "../assets/insta/li-4.png";
 import Instagram6 from "../assets/insta/li-5.png";
 
 const FooterLeft = styled.div`
-  display: flex;
-  margin-left: 240px;
+  display: inline-flex;
   margin-bottom: 10px;
-  width: 200px;
+  vertical-align: top;
   img {
     width: 25px;
     height: 25px;
@@ -28,11 +27,13 @@ const FooterLeft = styled.div`
 `;
 
 const FooterCenter = styled.div`
-  display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
   align-content: center;
   flex-direction: column;
   align-items: flex-start;
+  vertical-align: top;
+
   h5 {
     margin-bottom: 30px;
     color: white;
@@ -43,15 +44,11 @@ const FooterCenter = styled.div`
 `;
 
 const FooterRight = styled.div`
-  display: flex;
-  margin-left: 170vh;
-  width: 25%;
+  display: inline-flex;
   height: auto;
-  float: left;
   flex-wrap: wrap;
   gap: 10px;
-  img {
-  }
+  vertical-align: top;
 `;
 
 export default function Footer() {
@@ -85,7 +82,7 @@ export default function Footer() {
         </FooterCenter>
       </section>
 
-      <section className="footer-info-right">
+      <section className="footer-right">
         <p>Instagram</p>
         <FooterRight>
           <img src={Instagram1} alt="Instagram-1" />

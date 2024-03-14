@@ -1,19 +1,25 @@
 .footer-logo {
   display: flex;
   margin-left: 240px;
-  margin-top: 100px;
+
   margin-bottom: 50px;
 }
 
 .body {
+  display: flex;
+  gap: 2rem;
   background-color: #292929;
-  height: 150vh;
 }
 
-.footer-info-right {
-  height: 20px;
+.footer-right {
+  width: 30%;
 }
-.footer-info-right p {
+
+.footer-left,
+.footer-center {
+  width: 25%;
+}
+.footer-right p {
   margin-left: 170vh;
   color: white;
 }
