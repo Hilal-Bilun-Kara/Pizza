@@ -100,6 +100,7 @@ const Order = () => {
           </p>
         </header>
       </div>
+
       <form onSubmit={handleSubmit}>
         <input
           className="isim"
@@ -115,7 +116,7 @@ const Order = () => {
         <p
           style={{
             display: "inline-block",
-            marginTop: "100px",
+            marginTop: "20px",
             marginRight: "200px",
             fontSize: "25px",
           }}

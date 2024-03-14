@@ -142,33 +142,6 @@ export default function Home() {
         </StyledNavItem>
       </StyledNav>
 
-      <Banner>
-        <BannerImage>
-          <img alt="Kart1" src={Kart1} />
-          <h2>Özel Lezzetus</h2>
-          <h4>Position Absolute Acı Pizza</h4>
-          <SiparisButton>
-            <Link to="/order">Sipariş Ver</Link>
-          </SiparisButton>
-        </BannerImage>
-
-        <BannerImage>
-          <img alt="Kart2" src={Kart2} />
-          <h3>Hackathlon Burger Menü</h3>
-          <SiparisButton>
-            <Link to="/order">Sipariş Ver</Link>
-          </SiparisButton>
-        </BannerImage>
-
-        <BannerImage>
-          <img alt="Kart3" src={Kart3} />
-          <h3>Çoooook hızlı npm gibi kurye</h3>
-          <SiparisButton>
-            <Link to="/order">Sipariş Ver</Link>
-          </SiparisButton>
-        </BannerImage>
-      </Banner>
-
       <Body>
         <PrefferedMenu>en çok paketlenen menüler</PrefferedMenu>
         <Lezzetler>Acıktıran Kodlara Doyuran Lezzetler</Lezzetler>

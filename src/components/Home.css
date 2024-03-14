@@ -1,5 +1,4 @@
 .home-image {
-  height: 100vh;
   position: relative;
 }
 
@@ -20,7 +19,7 @@
 
 .overlay {
   position: absolute;
-  top: 25%;
+  top: 12%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
