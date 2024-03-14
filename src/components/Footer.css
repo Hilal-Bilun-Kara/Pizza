@@ -1,0 +1,19 @@
+.footer-logo {
+  display: flex;
+  margin-left: 240px;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+.body {
+  background-color: #292929;
+  height: 150vh;
+}
+
+.footer-info-right {
+  height: 20px;
+}
+.footer-info-right p {
+  margin-left: 170vh;
+  color: white;
+}

@@ -3,15 +3,11 @@ import { Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Order from "./components/Order";
 import Success from "./components/Success";
-
-
+import Footer from "./components/Footer";
 
 function App() {
- 
-  
   return (
     <>
-    
       <Switch>
         <Route exact path="/">
           <Home />
