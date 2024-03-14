@@ -4,7 +4,6 @@ import logo from "../assets/logo.svg";
 import axios from "axios";
 import { Button, Card } from "reactstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import Footer from "./Footer";
 
 const Order = () => {
   const [name, setName] = useState("");
@@ -203,7 +202,6 @@ const Order = () => {
           </Button>
         </Card>
       </form>
-      <Footer />
     </div>
   );
 };

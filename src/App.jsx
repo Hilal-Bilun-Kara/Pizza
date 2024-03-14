@@ -11,10 +11,12 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Home />
+          <Footer />
         </Route>
 
         <Route path="/order">
           <Order />
+          <Footer />
         </Route>
 
         <Route path="/success">

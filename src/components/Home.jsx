@@ -14,7 +14,7 @@ import food1 from "../assets/pictures/food-1.png";
 import food2 from "../assets/pictures/food-2.png";
 import food3 from "../assets/pictures/food-3.png";
 import { Card, CardBody } from "reactstrap";
-import Footer from "./Footer";
+
 import Kart1 from "../assets/cta/kart-1.png";
 import Kart2 from "../assets/cta/kart-2.png";
 import Kart3 from "../assets/cta/kart-3.png";
@@ -259,8 +259,6 @@ export default function Home() {
           </Card>
         </StyledCardContainer>
       </Body>
-
-      <Footer />
     </div>
   );
 }
