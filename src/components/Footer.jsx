@@ -53,7 +53,7 @@ const FooterRight = styled.div`
 
 export default function Footer() {
   return (
-    <section className="body">
+    <section className="footer">
       <section className="footer-left">
         <img className="footer-logo" src={footerlogo} alt="Footer" />
         <FooterLeft>

@@ -19,7 +19,7 @@ import Kart1 from "../assets/cta/kart-1.png";
 import Kart2 from "../assets/cta/kart-2.png";
 import Kart3 from "../assets/cta/kart-3.png";
 
-const Body = styled.div`
+const AltBanner = styled.div`
   background-color: #faf7f2;
 `;
 
@@ -83,39 +83,144 @@ const StyledCardTitle = styled.p`
   color: #292929;
 `;
 
-const BannerImage = styled.div`
-  margin-left: 10px;
+const SiparisButton = styled.button`
+  background-color: #faf7f2;
+  padding: 8px 40px;
+  font-size: 0.8em;
+  border: none;
+  border-radius: 30px;
+  a {
+    color: #ce2829;
+    text-decoration: none;
+    -webkit-text-stroke: medium;
+  }
+`;
+
+const SiparisButton1 = styled.button`
+  background-color: #faf7f2;
+  padding: 3px 30px;
+  font-size: 0.8em;
+  border: none;
+  border-radius: 30px;
+  margin-left: -65px;
+  a {
+    color: #ce2829;
+    text-decoration: none;
+    -webkit-text-stroke: medium;
+  }
+`;
+
+const SiparisButton2 = styled.button`
+  background-color: #faf7f2;
+  padding: 3px 30px;
+  font-size: 0.8em;
+  border: none;
+  border-radius: 30px;
+  margin-left: -65px;
+  margin-bottom: 38px;
+  a {
+    color: #ce2829;
+    text-decoration: none;
+    -webkit-text-stroke: medium;
+  }
+`;
+
+const Banner = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-right: 2%;
+  margin-left: 20%;
   img {
-    width: 360px;
-    height: 340px;
+    width: 500px;
+    height: 400px;
     border-radius: 8px;
   }
 `;
 
-const SiparisButton = styled.button`
-  color: #292929;
-  background-color: #faf7f2;
-  padding: 8px 40px;
-  font-size: 1em;
-  border: none;
-  border-radius: 30px;
+const Banner2 = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column-reverse;
+  margin-top: 50px;
+  margin-left: auto;
+
+  img {
+    margin-bottom: 20px;
+    width: 450px;
+    height: 190px;
+    border-radius: 8px;
+  }
 `;
 
-const Banner = styled.div`
-  width: 50px;
+const BannerImage1 = styled.div`
+  margin-right: 60px;
+  position: absolute;
+  margin-right: 16%;
+  margin-top: 4%;
+  text-align: left;
+  color: #faf7f2;
+  text-weight: bold;
+  p {
+    font-size: 16px;
+  }
+  h2 {
+    font-size: 40px;
+    font-family: "Quattrocento";
+  }
+`;
+
+const BannerImage2 = styled.div`
+  margin-left: 60px;
+  position: absolute;
+  margin-top: 18%;
+  margin-right: 20px;
+
+  p {
+    color: #black;
+    font-size: 20px;
+    width: 154px;
+    height: 58px;
+    margin-left: -25px;
+    margin-top: -230%;
+    font-weight: bold;
+  }
+`;
+
+const BannerImage3 = styled.div`
+  margin-left: 60px;
+  position: absolute;
+  margin-top: 18%;
+  margin-right: 20px;
+  p {
+    color: #faf7f2;
+    font-size: 20px;
+    width: 150px;
+    height: 50px;
+    margin-left: -25px;
+    margin-bottom: 45%;
+    font-weight: bold;
+  }
+
+  span {
+    color: #ce2829;
+    font-weight: bold;
+  }
 `;
 
 export default function Home() {
   return (
-    <div className="home-image">
-      <img className="fullscreen-image" src={home} alt="Home Banner" />
-      <div className="overlay">
-        <img src={logo} alt="Logo" />
-        <p className="firsat">fırsatı kaçırma</p>
-        <h1>KOD ACIKTIRIR PİZZA,DOYURUR</h1>
-        <button>
-          <Link to="/order">ACIKTIM</Link>
-        </button>
+    <>
+      <div className="home-image">
+        <img className="fullscreen-image" src={home} alt="Home Banner" />
+        <div className="overlay">
+          <img src={logo} alt="Logo" />
+          <p className="firsat">fırsatı kaçırma</p>
+          <h1>KOD ACIKTIRIR PİZZA,DOYURUR</h1>
+          <button>
+            <Link to="/order">ACIKTIM</Link>
+          </button>
+        </div>
       </div>
 
       <StyledNav pills>
@@ -142,7 +247,39 @@ export default function Home() {
         </StyledNavItem>
       </StyledNav>
 
-      <Body>
+      <div style={{ display: "flex", maxInlineSize: "fit-content" }}>
+        <Banner>
+          <img alt="Kart1" src={Kart1} />
+          <BannerImage1>
+            <h2>Özel Lezzetus</h2>
+            <p>Position Absolute Acı Pizza</p>
+            <SiparisButton>
+              <Link to="/order">SİPARİŞ VER</Link>
+            </SiparisButton>
+          </BannerImage1>
+        </Banner>
+        <Banner2>
+          <img alt="Kart2" src={Kart2} />
+          <BannerImage2>
+            <p>Hackathlon Burger Menü</p>
+            <SiparisButton1>
+              <Link to="/order">SİPARİŞ VER</Link>
+            </SiparisButton1>
+          </BannerImage2>
+
+          <img alt="Kart3" src={Kart3} />
+          <BannerImage3>
+            <p>
+              <span>Çoooook</span> hızlı npm gibi kurye
+            </p>
+            <SiparisButton2>
+              <Link to="/order">SİPARİŞ VER</Link>
+            </SiparisButton2>
+          </BannerImage3>
+        </Banner2>{" "}
+      </div>
+
+      <AltBanner>
         <PrefferedMenu>en çok paketlenen menüler</PrefferedMenu>
         <Lezzetler>Acıktıran Kodlara Doyuran Lezzetler</Lezzetler>
 
@@ -231,7 +368,7 @@ export default function Home() {
             </CardBody>
           </Card>
         </StyledCardContainer>
-      </Body>
-    </div>
+      </AltBanner>
+    </>
   );
 }

@@ -4,6 +4,7 @@ import logo from "../assets/logo.svg";
 import axios from "axios";
 import { Button, Card } from "reactstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import Footer from "./Footer";
 
 const Order = () => {
   const [name, setName] = useState("");
@@ -13,6 +14,16 @@ const Order = () => {
   const [notlar, setNotlar] = useState("");
   const [isValid, setIsValid] = useState(true);
   const [productCount, setProductCount] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  const malzemePrice = 5;
+  const totalMalzemePrice = malzemeler.length * malzemePrice;
+
+  // Herhangi bir şey değiştiğinde totalPrice'ı güncelle
+  useEffect(() => {
+    const newTotalPrice = totalMalzemePrice + productCount * 85.5;
+    setTotalPrice(newTotalPrice);
+  }, [malzemeler, productCount, totalMalzemePrice]);
 
   useEffect(() => {
     const isFormValid = !(
@@ -45,7 +56,7 @@ const Order = () => {
       .then((response) => {
         if (response) {
           setIsValid(response);
-          history.push("/success");
+          history.push("/success", { size: setSize });
         } else {
           history.push("/order");
         }
@@ -88,6 +99,10 @@ const Order = () => {
 
   const handleNotlarChange = (e) => {
     setNotlar(e.target.value);
+  };
+
+  const handleSiparisToplami = (e) => {
+    setTotalPrice(e.target.value);
   };
 
   return (
@@ -183,10 +198,15 @@ const Order = () => {
             width: "18rem",
             marginLeft: "35vh",
             marginTop: "-55px",
+            marginBottom: "10%",
             padding: "30px 11px 20px 15px",
           }}
         >
-          <SiparisToplami malzemeler={malzemeler} />
+          <SiparisToplami
+            malzemeler={malzemeler}
+            totalMalzemePrice={totalMalzemePrice}
+            productCount={productCount}
+          />
           <Button
             className="order-contaButton"
             type="submit"
@@ -328,20 +348,19 @@ const NoteCard = ({ notlar, handleNotlarChange }) => {
   );
 };
 
-const SiparisToplami = ({ malzemeler }) => {
-  const malzemePrice = 5;
-  const totalMalzemePrice = malzemeler.length * malzemePrice;
-  const totalPrice = totalMalzemePrice + 85.5;
+const SiparisToplami = ({ malzemeler, totalMalzemePrice, productCount }) => {
+  const totalPrice = totalMalzemePrice + productCount * 85.5;
 
   return (
     <div className="siparis-toplami">
       <h4>Sipariş Toplamı</h4>
       <p>
         Seçimler:
-        <span style={{ marginLeft: "150px" }}>{totalMalzemePrice}₺</span>
+        <span malzemeler={malzemeler}>{totalMalzemePrice}₺</span>
       </p>
       <p className="toplam">
-        Toplam:<span style={{ marginLeft: "150px" }}>{totalPrice}₺</span>
+        Toplam:
+        <span>{totalPrice}₺</span>
       </p>
     </div>
   );
